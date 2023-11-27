@@ -8,7 +8,7 @@ terraform {
 
   required_version = ">= 1.2.0"
 }
-
+# region
 provider "aws" {
   region  = "us-east-2"
   profile = "codebuild-user"
