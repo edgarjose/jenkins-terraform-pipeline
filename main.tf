@@ -13,7 +13,7 @@ provider "aws" {
   region  = "us-east-2"
   profile = "codebuild-user"
 }
-
+# ec2
 resource "aws_instance" "example_server" {
   ami           = "ami-06d4b7182ac3480fa"
   instance_type = "t2.micro"
