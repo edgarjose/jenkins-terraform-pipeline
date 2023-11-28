@@ -12,10 +12,12 @@ pipeline{
     }
 
     stage('Execucao do projecto terraform') {
-        script {
-            dir('') {
-                sh 'terraform init'
-                sh 'terraform apply' 
+        steps{
+            script {
+                dir('') {
+                    sh 'terraform init'
+                    sh 'terraform apply' 
+                }
             }
         }
     }
