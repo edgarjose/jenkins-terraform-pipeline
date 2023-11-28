@@ -1,6 +1,12 @@
 pipeline{
     agent any
-
+    parameters{
+        booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply')
+    }
+    environment {
+        AWS_ACCESS_KEY_ID      = credentials('AWS_ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY  = credentials('AWS_SECRET_ACCESS_KEY')
+    }
     stages {
 
         stage('Checkout source'){
@@ -13,13 +19,20 @@ pipeline{
         stage('Execucao do projecto terraform') {
         steps{
             script {
-                dir('') {
-                    sh 'terraform init'
-                    sh 'terraform apply' 
-                }
-            }
+                 dir('src') {
+                   sh 'terraform init'
+                  sh 'terraform apply' 
+              }
+          }
         }
-      }
+      } 
         
+      stage('Approval'){
+        when {
+            not {
+                equals expected: true, actual: params.autoApprove
+            }
+        }  
+      }
     }
 }
