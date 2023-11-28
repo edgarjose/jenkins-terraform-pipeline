@@ -21,7 +21,7 @@ pipeline{
                 script {
                      dir('src') {
                        sh 'terraform init'
-                      sh 'terraform apply' 
+                      sh 'terraform plan' 
                   }
               }
             }
