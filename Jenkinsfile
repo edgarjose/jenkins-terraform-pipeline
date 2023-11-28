@@ -17,22 +17,24 @@ pipeline{
         }
 
         stage('Execucao do projecto terraform') {
-        steps{
-            script {
-                 dir('src') {
-                   sh 'terraform init'
-                  sh 'terraform apply' 
+            steps{
+                script {
+                     dir('src') {
+                       sh 'terraform init'
+                      sh 'terraform apply' 
+                  }
               }
-          }
-        }
+            }
       } 
         
       stage('Approval'){
-        when {
-            not {
-                equals expected: true, actual: params.autoApprove
-            }
-        }  
+          steps{
+               when {
+                    not {
+                        equals expected: true, actual: params.autoApprove
+                    }
+                }     
+          }
       }
     }
 }
