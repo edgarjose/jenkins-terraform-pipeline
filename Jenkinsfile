@@ -21,7 +21,7 @@ pipeline{
                 script {
                       sh 'ls -la'
                       sh 'terraform init'
-                      sh 'terraform plan' 
+                      sh 'terraform apply' 
               }
             }
       } 
