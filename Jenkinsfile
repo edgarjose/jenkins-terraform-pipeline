@@ -9,9 +9,8 @@ pipeline{
                 sh 'ls'
             }
         }
-    }
 
-    stage('Execucao do projecto terraform') {
+        stage('Execucao do projecto terraform') {
         steps{
             script {
                 dir('') {
@@ -20,5 +19,7 @@ pipeline{
                 }
             }
         }
+      }
+        
     }
 }
