@@ -12,7 +12,6 @@ terraform {
 # region
 provider "aws" {
   region  = "us-east-2"
-  profile = "codebuild-user"
 }
 # ec2
 resource "aws_instance" "example_server" {
