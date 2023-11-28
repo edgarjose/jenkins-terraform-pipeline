@@ -20,6 +20,7 @@ pipeline{
             steps{
                 script {
                      dir('src') {
+                      sh 'ls -la'
                       sh 'terraform init'
                       sh 'terraform plan -out tfplan' 
                   }
