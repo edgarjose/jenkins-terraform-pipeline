@@ -20,8 +20,8 @@ pipeline{
             steps{
                 script {
                      dir('src') {
-                       sh 'terraform init'
-                      sh 'terraform plan' 
+                      sh 'pwd;cd terraform/ ; terraform init'
+                      sh 'pwd;cd terraform/ ; terraform plan -out tfplan' 
                   }
               }
             }
