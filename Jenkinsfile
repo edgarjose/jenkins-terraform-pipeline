@@ -27,14 +27,5 @@ pipeline{
             }
       } 
         
-      stage('Approval'){
-          steps{
-               when {
-                    not {
-                        equals expected: true, actual: params.autoApprove
-                    }
-                }     
-          }
-      }
     }
 }
